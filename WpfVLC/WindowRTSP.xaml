@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfVLC.WindowRTSP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfVLC"
+        xmlns:vlc="clr-namespace:Vlc.DotNet.Wpf;assembly=Vlc.DotNet.Wpf"
+        mc:Ignorable="d"
+        WindowStyle="None" 
+        AllowsTransparency="False"  ResizeMode="NoResize"
+	    Background="Transparent"  Loaded="Window_Loaded"
+        Title="WPF_VLC"  Width="1280"  Height="800"  WindowStartupLocation="CenterScreen" Icon="/Image/logo.ico"  >
+    <Grid>
+        <Border BorderBrush="Gold" BorderThickness="2" CornerRadius="1" Background="Gray">
+            <DockPanel Name="dpCon">
+                <local:UCHeader DockPanel.Dock="Top"></local:UCHeader>
+                <DockPanel>
+                    <DockPanel DockPanel.Dock="Bottom">
+                        <StackPanel Height="50" DockPanel.Dock="Bottom" Orientation="Horizontal">
+                            <TextBlock Text="rtsp地址：" VerticalAlignment="Center"></TextBlock>
+                            <TextBox Name="txtRtsp" Width="200" VerticalContentAlignment="Center" Text="rtsp://192.168.1.111"></TextBox>
+                            <Button Name="btnRtsp" Content="播放" Click="rtsp_Click" Width="50"></Button>
+                            <Button Name="btnStop" Content="停止" Click="stop_Click" Width="50" Margin="10,0,0,0"></Button>
+                        </StackPanel>
+                    </DockPanel>
+                    <vlc:VlcControl x:Name="VlcControl" />
+                </DockPanel>
+            </DockPanel> 
+        </Border>
+    </Grid>
+</Window>
